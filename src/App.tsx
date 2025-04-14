@@ -228,6 +228,15 @@ function App() {
   if (state === 2) className = 'wa-disabled wa-selected';
   if (state === 3) className = 'wa-disabled';
 
+  const [state2, setState2] = useState(0)
+
+  let className2;
+
+  if (state2 === 0) className2 = '';
+  if (state2 === 1) className2 = 'wa-selected';
+  if (state2 === 2) className2 = 'wa-disabled wa-selected';
+  if (state2 === 3) className2 = 'wa-disabled';
+
   return (
     <>
       <div style={{
@@ -251,6 +260,29 @@ function App() {
       </div>
       <p>kwiff state: {className}</p>
       <button onClick={() => setState(state => state < 3 ? state + 1 : 0)}>change kwiff state</button>
+      <div style={{
+        width: "fit-content",
+        backgroundColor: "rgb(18, 18, 18)",
+        marginTop: "1em"
+      }}>
+        <div style={{
+          display: 'relative',
+          height: "100px",
+          width: "720px",
+          background: "linear-gradient(106.51deg, rgba(255, 255, 255, 0.25) -30.62%, rgba(255, 255, 255, 0.25) -30.62%, rgba(255, 255, 255, 0.25) -30.61%, rgba(255, 255, 255, 0.176) 30.64%, rgba(255, 255, 255, 0.173) 30.66%, rgba(255, 255, 255, 0.075) 100%)"
+        }}>
+          <StyledButton className={className2} sx={{
+            display: 'absolute',
+            left: '40rem',
+            top: '1.5rem',
+          }}
+          onClick={() => setState2(state => +!state)}
+          >
+            {className?.includes('wa-disabled') ? <LockOutlined /> : 6.25}
+          </StyledButton>
+        </div>
+      </div>
+      <p>kwiff state: {className2}</p>
     </>
   )
 }
